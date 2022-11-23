@@ -1,0 +1,31 @@
+.THIS {
+
+}
+
+.THIS .translation  {
+    background: white;
+    padding-bottom: 0.5em;
+    overflow-y: scroll;
+}
+
+.THIS .italic {
+    font-style: italic;
+}
+
+.THIS .blue {
+    color : blue;
+}
+
+.THIS .header {
+    padding-bottom : 0.5rem;
+}
+
+.THIS .languageBadge {
+    font-weight: bold;
+}
+
+.THIS .underline {
+    border-bottom-color:lightgray;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}

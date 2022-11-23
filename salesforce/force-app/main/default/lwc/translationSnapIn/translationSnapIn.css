@@ -1,0 +1,25 @@
+.chat-content {
+    position: relative;
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 70%;
+    padding: 10px;
+    font-size: 0.875em;
+    border-radius: 10px 10px 0;
+    float: right;
+    margin-left: 40px;
+    white-space: pre-wrap;
+}
+
+.agent.chat-content {
+    color: white;
+    background: blue;
+    border-radius: 10px 10px 10px 0;
+    float: left;
+}
+
+.chasitor.chat-content {
+    background: rgb(206, 51, 203);
+    color: #fff;
+    margin-left: auto;
+}

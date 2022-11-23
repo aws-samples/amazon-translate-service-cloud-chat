@@ -1,0 +1,19 @@
+<template>
+    <!--<img src="path_to_your_logo" alt="My Logo"></img>-->
+    <h2 aria-live="polite">
+        {text}
+    </h2>
+    <select name="language" class="language" onchange={changeLanguage}>
+        <option value="off">--</option>
+        <option value="en">en</option>
+        <option value="es">es</option>
+        <option value="de">de</option>
+        <option value="fr">fr</option>
+      </select>
+    <button class="minimizeButton" onclick={minimize} aria-live="off">
+        <lightning-icon icon-name="utility:minimize_window" size="small"></lightning-icon>
+    </button>
+    <button class="closeButton" onclick={close} aria-live="off">
+        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+    </button>
+</template>

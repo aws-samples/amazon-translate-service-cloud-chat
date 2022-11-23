@@ -1,0 +1,10 @@
+{
+    "name": "salesforce-amazon-translate-demo",
+    "version": "1.0.0",
+    "description": "Lambda function to perform translation ops using Amazon Translate",
+    "private": true,
+    "license": "MIT",
+    "dependencies": {
+      "aws-sdk": "*"
+    }
+  }

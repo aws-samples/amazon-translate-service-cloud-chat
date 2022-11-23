@@ -1,0 +1,53 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="TranslationSnapinCtrl" description="Conversation toolkit api sample">
+    <lightning:conversationToolkitAPI aura:id="conversationKit" />
+    <aura:handler event="lightning:conversationNewMessage" action="{!c.onNewMessage}" />
+    <aura:handler event="lightning:conversationAgentSend" action="{!c.onAgentSend}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="clientMessages" type="Object[]"/>
+    <aura:attribute name="currentmessage" type="String"/>
+    <aura:attribute name="detectedLanguage" type="String"/>
+    <aura:attribute name="languageKnown" type="Boolean" default="false"/>
+    <aura:attribute name="selectedLanguage" type="String" default="auto"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="messages" type="Object[]"/>
+
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:feedback" size="small"></lightning:icon>
+            Real Time Chat Translation 
+        </aura:set>
+        <div class="slds-grid slds-wrap translation">
+            <div class="slds-col slds-size_1-of-2">
+                <p class="slds-text-heading_small slds-text-align_center header">Customer's Language</p>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <p class="slds-text-heading_small slds-text-align_center header">Agent's Language</p>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <div class="underline"></div>
+            </div>
+        <aura:iteration items="{!v.clientMessages}" var="message">
+            <aura:if isTrue="{!message.isAgent}">
+                <div class="slds-col slds-size_1-of-2"></div>
+                <div class="slds-col slds-size_1-of-2">
+                    <p class="slds-text-body_regular blue">{!message.original}</p>
+                </div>
+                <aura:set attribute="else">
+                    <div class="slds-col slds-size_1-of-12">
+                        <p class="slds-text-body_regular languageBadge slds-text-align_center">{!message.detectedLanguage}</p>
+                    </div>
+                    <div class="slds-col slds-size_5-of-12">
+                        <p class="slds-text-body_regular">{!message.original}</p>
+                    </div>
+                    <div class="slds-col slds-size_6-of-12">
+                        <p class="slds-text-body_regular">{!message.translated}</p>
+                    </div>
+                </aura:set>
+            </aura:if>
+            <div class="slds-col slds-size_1-of-1">
+                <div class="underline"></div>
+            </div>
+        </aura:iteration>
+        </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,72 @@
+:host {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 14px;
+    height: 50px;
+    max-height: 50px;
+    background-color: black;
+}
+
+img {
+    margin-right: 4px;
+    max-height: 40px;
+    max-width: 40px;
+}
+
+h2 {
+    margin: 0;
+    text-align: initial;
+    align-self: center;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: lighter;
+    font-size: inherit;
+    color: white;
+}
+
+button {
+    background: none;
+    border: none;
+    height: 32px;
+    min-height: 32px;
+    width: 32px;
+    min-width: 32px;
+}
+
+button:hover:before {
+    content: " ";
+    position: absolute;
+    top: 9px;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    opacity: .2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+select {
+    right: 90px;
+}
+
+button.minimizeButton:hover:before {
+    right: 37px;
+    top: 7px;
+}
+
+button.closeButton:hover:before {
+    top: 7px;
+    right: 5px;
+}
+
+lightning-icon {
+    fill: white;
+    padding-left: 8px;
+}
