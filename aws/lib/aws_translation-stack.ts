@@ -41,11 +41,34 @@ export class AwsTranslationStack extends Stack {
     const translationIntegration = new LambdaIntegration(translateTextLambda);
 
     const items = api.root.addResource('translate');
-    items.addMethod('POST', translationIntegration, {
+    const apiMethod = items.addMethod('POST', translationIntegration, {
       apiKeyRequired: true
     });
 
     addCorsOptions(items);
+
+    const plan = api.addUsagePlan('UsagePlan', {
+      name: 'TranslationUsagePlan',
+      throttle: {
+        rateLimit: 500,
+        burstLimit: 50
+      }
+    });
+
+    plan.addApiKey(key);
+
+    plan.addApiStage({
+      stage: api.deploymentStage,
+      throttle: [
+        {
+          method: apiMethod,
+          throttle: {
+            rateLimit: 100,
+            burstLimit: 20
+          }
+        }
+      ]
+    });
   }
   
   
